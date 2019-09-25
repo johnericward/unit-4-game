@@ -19,22 +19,28 @@ viewport {
 
 
 
-#pikachu {
+#pikachu1 {
     width: 25%;
 }
-#squirtle {
+#squirtle1 {
     width: 25%;
 }
-#charmander {
+#charmander1 {
     width: 25%;
 }
-#bulbasaur {
+#bulbasaur1 {
     width: 25%;
 }
 
-/* #pikachu2 {
-    width: 100%
-} */
+#trainerLeft {
+    /* height: 100%; */
+    background: transparent;
+    border-color: transparent;
+}
+#trainerRight {
+    background: transparent;
+    border-color: transparent;
+}
 
 
 .charButton {
@@ -66,6 +72,29 @@ viewport {
     opacity: 0;
 }
 
+#attackButton {
+    text-align: center;
+    font-size: 30px;
+    /* background-color: red; */
+    /* border: none; */
+}
+
+#p1HealthText {
+    color: rgb(204, 204, 204);
+}
+
+#p1Health {
+    color: rgb(65, 201, 255);
+}
+
+#cpuHealthText {
+    color: rgb(204, 204, 204);
+}
+
+#cpuHealth {
+    color: rgb(65, 201, 255);
+}
+
 /* .pcol1 {
     background-color: red;
 }
@@ -86,4 +115,10 @@ viewport {
 }
 .pcol7 {
     background-color: rgb(255, 0, 119);
+}
+.pcol8 {
+    background-color: none;
+}
+.pcol9 {
+    background-color: none;
 } */

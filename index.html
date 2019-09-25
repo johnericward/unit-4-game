@@ -47,34 +47,39 @@
 
         <div class="row middlePage">
 
-            
-                <button id="pikachu" class="charButton"><img src="assets/images/pikachu.png" alt="pikachu"
-                        width="70%"></button>
 
-                <button id="squirtle" class="charButton"><img src="assets/images/squirtle.png" alt="squirtle"
-                        width="70%"></button>
 
-                <button id="charmander" class="charButton"><img src="assets/images/charmander.png" alt="charmander"
-                        width="70%"></button>
+            <button id="pikachu1" class="charButton pokemon" value="pikachu"><img src="assets/images/pikachu.png"
+                    alt="pikachu" width="70%"></button>
 
-                <button id="bulbasaur" class="charButton"><img src="assets/images/bulbasaur.png" alt="bulbasaur"
-                        width="70%"></button>
-            
+            <button id="squirtle1" class="charButton pokemon" value="squirtle"><img src="assets/images/squirtle.png"
+                    alt="squirtle" width="70%"></button>
+
+            <button id="charmander1" class="charButton pokemon" value="charmander"><img
+                    src="assets/images/charmander.png" alt="charmander" width="70%"></button>
+
+            <button id="bulbasaur1" class="charButton pokemon" value="bulbasaur"><img src="assets/images/bulbasaur.png"
+                    alt="bulbasaur" width="70%"></button>
+
         </div>
         <br>
 
         <div class="row" id="stadium">
 
-            <div class="col-lg-2 pcol1">
+            <div class="col-lg-1 pcol1">
+                <button id="trainerLeft" class="trainerLeft" value="trainerLeft"><img
+                        src="assets/images/trainer-left.png" alt="trainerLeft" width="300%"></button>
+            </div>
+            <div class="col-lg-1 pcol8">
                 <img src="assets/images/stadium_field.png" id="stadiumSizer">
             </div>
             <div class="col-lg-1 pcol2">
                 <img src="assets/images/pikachu.png" alt="pikachu" width="150%" id="pikachu2">
-                <img src="assets/images/squirtle.png" alt="squirtle" width="150%" id="squirtle2">
+                <img src="assets/images/squirtle-face-right.png" alt="squirtle" width="150%" id="squirtle2">
             </div>
             <div class="col-lg-1 pcol3">
-                <img src="assets/images/charmander.png" alt="charmander" width="150%" id="charmander2">
-                <img src="assets/images/bulbasaur.png" alt="bulbasaur" width="150%" id="bulbasaur2">
+                <img src="assets/images/charmander-face-right.png" alt="charmander" width="150%" id="charmander2">
+                <img src="assets/images/bulbasaur-face-right.png" alt="bulbasaur" width="150%" id="bulbasaur2">
             </div>
             <div class="col-lg-4 pcol4">
 
@@ -87,12 +92,30 @@
                 <img src="assets/images/charmander.png" alt="charmander" width="150%" id="charmander3">
                 <img src="assets/images/bulbasaur.png" alt="bulbasaur" width="150%" id="bulbasaur3">
             </div>
-            <div class="col-lg-2 pcol7">
+            <div class="col-lg-1 pcol9">
 
             </div>
-
-
-
+            <div class="col-lg-1 pcol7">
+                <button id="trainerRight" class="trainerRight" value="trainerRight"><img
+                        src="assets/images/trainer-right.png" alt="trainerRight" width="300%"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-1">
+                <button id=attackButton>ATTACK!</button>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-2">
+                <h1 id="p1HealthText">Player 1 Health: <span id="p1Health"></span></h1>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-2">
+                <h1 id="cpuHealthText">CPU Health: <span id="cpuHealth"></span></h1>
+            </div>
+            <div class="col-lg-1"></div>
+            <h1 id="gameMessages"></h1>
+            <div class="col-lg-2"></div>
         </div>
     </div>
 
