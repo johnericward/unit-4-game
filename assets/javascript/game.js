@@ -221,12 +221,18 @@ $(document).ready(function () {
                     console.log(attacker.name + " is the attacker");
                 };
         
-           
+           // opponent choosing
             } else {
                 if ($(this).attr("value") === "pikachu") {
                     console.log("you picked pikachu");
                     pikachu1.animate({ opacity: "0.00" });
                     pikachu3.animate({ opacity: "1" });
+                    //other opponents are invisible
+                    squirtle3.animate({ opacity: "0" });
+                    charmander3.animate({ opacity: "0" });
+                    bulbasaur3.animate({ opacity: "0" });
+                    messageBar.html("");
+                    //^^^^
                     pokemonChosenSecond = true;
                     trainerRight.animate({ opacity: "1" });
                     attackButton.animate({ opacity: "1" });
@@ -239,6 +245,12 @@ $(document).ready(function () {
                     console.log("squirtle clicked")
                     squirtle1.animate({ opacity: "0.00" });
                     squirtle3.animate({ opacity: "1" });
+                    //other opponents are invisible
+                    pikachu3.animate({ opacity: "0" });
+                    charmander3.animate({ opacity: "0" });
+                    bulbasaur3.animate({ opacity: "0" });
+                    messageBar.html("");
+                    //^^^^
                     pokemonChosenSecond = true;
                     trainerRight.animate({ opacity: "1" });
                     attackButton.animate({ opacity: "1" });
@@ -251,6 +263,12 @@ $(document).ready(function () {
                     console.log("charmander clicked");
                     charmander1.animate({ opacity: "0.00" });
                     charmander3.animate({ opacity: "1" });
+                    //other opponents are invisible
+                    pikachu3.animate({ opacity: "0" });
+                    squirtle3.animate({ opacity: "0" });
+                    bulbasaur3.animate({ opacity: "0" });
+                    messageBar.html("");
+                    //^^^^
                     pokemonChosenSecond = true;
                     trainerRight.animate({ opacity: "1" });
                     attackButton.animate({ opacity: "1" });
@@ -263,6 +281,12 @@ $(document).ready(function () {
                     console.log("bulbasaur clicked");
                     bulbasaur1.animate({ opacity: "0.00" });
                     bulbasaur3.animate({ opacity: "1" });
+                    //other opponents are invisible
+                    pikachu3.animate({ opacity: "0" });
+                    squirtle3.animate({ opacity: "0" });
+                    charmander3.animate({ opacity: "0" });
+                    messageBar.html("");
+                    //^^^^
                     pokemonChosenSecond = true;
                     trainerRight.animate({ opacity: "1" });
                     attackButton.animate({ opacity: "1" });
@@ -290,11 +314,21 @@ $(document).ready(function () {
                 console.log(turnCounter);
                 cpuHealth.text(defender.health -= attacker.attack * turnCounter);
                 if (defender.health <= 0) {
+                    // if (defender.name === "pikachu3") {
+                    //     pikachu3.animate({ opacity: "0" });
+                    // } else if (defender.name === "squirtle3") {
+                    //     squirtle3.animate({ opacity: "0" });
+                    // } else if (defender.name === "charmander3") {
+                    //     charmander3.animate({ opacity: "0" });
+                    // } else if (defender.name === "bulbasaur3") {
+                    //     bulbasaur3.animate({ opacity: "0" });
+                    // };
                     console.log("enemy killed");
-                    // defender.name.animate({ opacity: "0" });
+                    messageBar.html("Select your next opponent!");
                     defender = false;
                     cpuHealth.html(0);
                     pokemonChosenSecond = false;
+                    
                 
 
 
