@@ -95,6 +95,11 @@ viewport {
     color: rgb(65, 201, 255);
 }
 
+#messageBar {
+    text-align: center;
+    color: red;
+}
+
 /* .pcol1 {
     background-color: red;
 }

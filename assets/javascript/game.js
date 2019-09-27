@@ -37,6 +37,7 @@ $(document).ready(function () {
     var p1Health = $("#p1Health");
     var cpuHealthText = $("#cpuHealthText");
     var cpuHealth = $("#cpuHealth");
+    var messageBar = $("#messageBar");
 
     var userChoices = [pikachu2, squirtle2, charmander2, bulbasaur2];
     var compChoices = [pikachu3, squirtle3, charmander3, bulbasaur3];
@@ -45,25 +46,25 @@ $(document).ready(function () {
 
     var characters = {
         "pikachuX": {
-            name: "pikachu",
+            name: "pikachu3",
             health: 160,
             attack: 12,
             enemyAttackBack: 25
         },
         "squirtleX": {
-            name: "squirtle",
+            name: "squirtle3",
             health: 240,
             attack: 10,
             enemyAttackBack: 20
         },
         "charmanderX": {
-            name: "charmander",
+            name: "charmander3",
             health: 200,
             attack: 15,
             enemyAttackBack: 30
         },
         "bulbasaurX": {
-            name: "bulbasaur",
+            name: "bulbasaur3",
             health: 280,
             attack: 7,
             enemyAttackBack: 15
@@ -108,20 +109,76 @@ $(document).ready(function () {
     var pokemonChosenThird = false;
     var pokemonChosenFourth = false;
 
+    //function for selecting your character
+    function chooseP1() {
+        console.log("p1 Func is running");
+
+    //     if ($(this).attr("value") === "pikachu") {
+    //         console.log("you picked pikachu");
+    //         pikachu1.animate({ opacity: "0.00" });
+    //         pikachu2.animate({ opacity: "1" });
+    //         pokemonChosenFirst = true;
+    //         trainerLeft.animate({ opacity: "1" });
+
+    //         p1HealthText.animate({ opacity: "1" });
+    //         attacker = characters.pikachuX;
+    //         p1Health.append(characters.pikachuX.health);
+    //         console.log(attacker.name + " is the attacker");
+    //     } else if
+    //         ($(this).attr("value") === "squirtle") {
+    //         console.log("squirtle clicked")
+    //         squirtle1.animate({ opacity: "0.00" });
+    //         squirtle2.animate({ opacity: "1" });
+    //         pokemonChosenFirst = true;
+    //         trainerLeft.animate({ opacity: "1" });
+
+    //         p1HealthText.animate({ opacity: "1" });
+    //         attacker = characters.squirtleX;
+    //         p1Health.append(characters.squirtleX.health);
+    //         console.log(attacker.name + " is the attacker");
+    //     } else if
+    //         ($(this).attr("value") === "charmander") {
+    //         console.log("charmander clicked");
+    //         charmander1.animate({ opacity: "0.00" });
+    //         charmander2.animate({ opacity: "1" });
+    //         pokemonChosenFirst = true;
+    //         trainerLeft.animate({ opacity: "1" });
+
+    //         p1HealthText.animate({ opacity: "1" });
+    //         attacker = characters.charmanderX;
+    //         p1Health.append(characters.charmanderX.health);
+    //         console.log(attacker.name + " is the attacker");
+    //     } else if
+    //         ($(this).attr("value") === "bulbasaur") {
+    //         console.log("bulbasaur clicked");
+    //         bulbasaur1.animate({ opacity: "0.00" });
+    //         bulbasaur2.animate({ opacity: "1" });
+    //         pokemonChosenFirst = true;
+    //         trainerLeft.animate({ opacity: "1" });
+
+    //         p1HealthText.animate({ opacity: "1" });
+    //         attacker = characters.bulbasaurX;
+    //         p1Health.append(characters.bulbasaurX.health);
+    //         console.log(attacker.name + " is the attacker");
+    //     };
+
+    };
+
+
 
     $(document).on("click", ".pokemon", function () {
 
 
         if (pokemonChosenSecond === false) {
-
             if (pokemonChosenFirst === false) {
+                chooseP1();
                 if ($(this).attr("value") === "pikachu") {
                     console.log("you picked pikachu");
                     pikachu1.animate({ opacity: "0.00" });
                     pikachu2.animate({ opacity: "1" });
                     pokemonChosenFirst = true;
                     trainerLeft.animate({ opacity: "1" });
-
+        
                     p1HealthText.animate({ opacity: "1" });
                     attacker = characters.pikachuX;
                     p1Health.append(characters.pikachuX.health);
@@ -133,7 +190,7 @@ $(document).ready(function () {
                     squirtle2.animate({ opacity: "1" });
                     pokemonChosenFirst = true;
                     trainerLeft.animate({ opacity: "1" });
-
+        
                     p1HealthText.animate({ opacity: "1" });
                     attacker = characters.squirtleX;
                     p1Health.append(characters.squirtleX.health);
@@ -145,7 +202,7 @@ $(document).ready(function () {
                     charmander2.animate({ opacity: "1" });
                     pokemonChosenFirst = true;
                     trainerLeft.animate({ opacity: "1" });
-
+        
                     p1HealthText.animate({ opacity: "1" });
                     attacker = characters.charmanderX;
                     p1Health.append(characters.charmanderX.health);
@@ -157,12 +214,14 @@ $(document).ready(function () {
                     bulbasaur2.animate({ opacity: "1" });
                     pokemonChosenFirst = true;
                     trainerLeft.animate({ opacity: "1" });
-
+        
                     p1HealthText.animate({ opacity: "1" });
                     attacker = characters.bulbasaurX;
                     p1Health.append(characters.bulbasaurX.health);
                     console.log(attacker.name + " is the attacker");
                 };
+        
+           
             } else {
                 if ($(this).attr("value") === "pikachu") {
                     console.log("you picked pikachu");
@@ -173,8 +232,8 @@ $(document).ready(function () {
                     attackButton.animate({ opacity: "1" });
                     cpuHealthText.animate({ opacity: "1" });
                     defender = characters.pikachuX;
-                    cpuHealth.append(characters.pikachuX.health);
-                    console.log(defender.name);
+                    cpuHealth.html(characters.pikachuX.health);
+                    console.log(defender.name + " is the defender");
                 } else if
                     ($(this).attr("value") === "squirtle") {
                     console.log("squirtle clicked")
@@ -185,8 +244,8 @@ $(document).ready(function () {
                     attackButton.animate({ opacity: "1" });
                     cpuHealthText.animate({ opacity: "1" });
                     defender = characters.squirtleX;
-                    cpuHealth.append(characters.squirtleX.health);
-                    console.log(defender.name);
+                    cpuHealth.html(characters.squirtleX.health);
+                    console.log(defender.name + " is the defender");
                 } else if
                     ($(this).attr("value") === "charmander") {
                     console.log("charmander clicked");
@@ -197,8 +256,8 @@ $(document).ready(function () {
                     attackButton.animate({ opacity: "1" });
                     cpuHealthText.animate({ opacity: "1" });
                     defender = characters.charmanderX;
-                    cpuHealth.append(characters.charmanderX.health);
-                    console.log(defender.name);
+                    cpuHealth.html(characters.charmanderX.health);
+                    console.log(defender.name + " is the defender");
                 } else if
                     ($(this).attr("value") === "bulbasaur") {
                     console.log("bulbasaur clicked");
@@ -209,59 +268,8 @@ $(document).ready(function () {
                     attackButton.animate({ opacity: "1" });
                     cpuHealthText.animate({ opacity: "1" });
                     defender = characters.bulbasaurX;
-                    cpuHealth.append(characters.bulbasaurX.health);
-                    console.log(defender.name);
-
-                } else if (pokemonChosenSecond = true) {
-                    
-                    if ($(this).attr("value") === "pikachu") {
-                        console.log("you picked pikachu");
-                        pikachu1.animate({ opacity: "0.00" });
-                        pikachu3.animate({ opacity: "1" });
-                        pokemonChosenThird = true;
-                        trainerRight.animate({ opacity: "1" });
-                        attackButton.animate({ opacity: "1" });
-                        cpuHealthText.animate({ opacity: "1" });
-                        defender = characters.pikachuX;
-                        cpuHealth.append(characters.pikachuX.health);
-                        console.log(defender.name);
-                    } else if
-                        ($(this).attr("value") === "squirtle") {
-                        console.log("squirtle clicked")
-                        squirtle1.animate({ opacity: "0.00" });
-                        squirtle3.animate({ opacity: "1" });
-                        pokemonChosenSecond = true;
-                        trainerRight.animate({ opacity: "1" });
-                        attackButton.animate({ opacity: "1" });
-                        cpuHealthText.animate({ opacity: "1" });
-                        defender = characters.squirtleX;
-                        cpuHealth.append(characters.squirtleX.health);
-                        console.log(defender.name);
-                    } else if
-                        ($(this).attr("value") === "charmander") {
-                        console.log("charmander clicked");
-                        charmander1.animate({ opacity: "0.00" });
-                        charmander3.animate({ opacity: "1" });
-                        pokemonChosenSecond = true;
-                        trainerRight.animate({ opacity: "1" });
-                        attackButton.animate({ opacity: "1" });
-                        cpuHealthText.animate({ opacity: "1" });
-                        defender = characters.charmanderX;
-                        cpuHealth.append(characters.charmanderX.health);
-                        console.log(defender.name);
-                    } else if
-                        ($(this).attr("value") === "bulbasaur") {
-                        console.log("bulbasaur clicked");
-                        bulbasaur1.animate({ opacity: "0.00" });
-                        bulbasaur3.animate({ opacity: "1" });
-                        pokemonChosenSecond = true;
-                        trainerRight.animate({ opacity: "1" });
-                        attackButton.animate({ opacity: "1" });
-                        cpuHealthText.animate({ opacity: "1" });
-                        defender = characters.bulbasaurX;
-                        cpuHealth.append(characters.bulbasaurX.health);
-                        console.log(defender.name);
-                    };
+                    cpuHealth.html(characters.bulbasaurX.health);
+                    console.log(defender.name + " is the defender");
                 };
             };
         } else {
@@ -274,20 +282,32 @@ $(document).ready(function () {
 
     //ATTACK SEQUENCE!!!!!========================
     $("#attackButton").on("click", function () {
-        if (defender) {
-            console.log("attackButtonPressed");
-            turnCounter++;
-            console.log(turnCounter);
-            cpuHealth.text(defender.health -= attacker.attack * turnCounter);
-            if (defender.health <= 0) {
-                console.log("first enemy killed");
-                defender = false;
-                nextRound
+        
+        if (attacker.health > 0) {
+            if (defender) {
+                console.log("attackButtonPressed");
+                turnCounter++;
+                console.log(turnCounter);
+                cpuHealth.text(defender.health -= attacker.attack * turnCounter);
+                if (defender.health <= 0) {
+                    console.log("enemy killed");
+                    // defender.name.animate({ opacity: "0" });
+                    defender = false;
+                    cpuHealth.html(0);
+                    pokemonChosenSecond = false;
+                
 
-            } else {
-                p1Health.text(attacker.health -= defender.enemyAttackBack);
-            }
-        };
+
+                } else {
+                    p1Health.text(attacker.health -= defender.enemyAttackBack);
+                }
+            };
+        } else {
+            p1Health.html("You fainted!");
+            messageBar.html("GAME OVER! (reset in 5 seconds)");
+            console.log("game over!")
+            setTimeout(function () { location.reload(); }, 5000);
+        }
     });
     //END ATTACK SEQUENCE!!!! ====================
 
