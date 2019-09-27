@@ -16,7 +16,7 @@ $(document).ready(function () {
     // ============================ ready statement beginning ^^^ =============================
 
 
-
+    //for JS to talk to HTML through jquery
 
     var pikachu1 = $("#pikachu1");
     var pikachu2 = $("#pikachu2");
@@ -40,11 +40,8 @@ $(document).ready(function () {
     var messageBar = $("#messageBar");
     var messageBar2 = $("#messageBar2");
 
-    var userChoices = [pikachu2, squirtle2, charmander2, bulbasaur2];
-    var compChoices = [pikachu3, squirtle3, charmander3, bulbasaur3];
 
-
-
+    //inivisible to user, only for gameplay to occur
     var characters = {
         "pikachuX": {
             name: "pikachu3",
@@ -67,24 +64,22 @@ $(document).ready(function () {
         "bulbasaurX": {
             name: "bulbasaur3",
             health: 280,
-            attack: 7,
+            attack: 10,
             enemyAttackBack: 15
         },
     };
 
+
+    //sets up a generic placeholder for gameplay to keep up with whatever character p1 chose
     var attacker;
-    var combatants = [];
+    //sets up placeholder for gameplay to handle opponents as user chooses them
     var defender;
+    //counts how many turns have happened in order to multiply p1 attack power
     var turnCounter = 0;
+    //keeps up with how many opponents have been defeated so it can trigger when the user has won after all opponents are defeated
     var killCount = 0;
 
-    // var initializeGame = function () { };
-
-    // var cpu;
-    // var userHP;
-    // var computerHP
-    // var damageGiven;
-
+    //VISUAL STUFF
     // left side of field
     pikachu2.animate({ opacity: "0" });
     squirtle2.animate({ opacity: "0" });
@@ -107,12 +102,11 @@ $(document).ready(function () {
     //once clicked, they disappear from the list and reappear on the field
     var pokemonChosenFirst = false;
     var pokemonChosenSecond = false;
-    var pokemonChosenThird = false;
-    var pokemonChosenFourth = false;
 
-    //function for selecting your character
+
+    //function for selecting your character that didn't work right, but does console log that it writes a message
     function chooseP1() {
-        console.log("p1 Func is running");
+        console.log("p1 Func is running, but doesn't do anything other than writing this message");
 
         //     if ($(this).attr("value") === "pikachu") {
         //         console.log("you picked pikachu");
@@ -166,7 +160,7 @@ $(document).ready(function () {
     };
 
 
-
+    //click event for choosing character and opponents
     $(document).on("click", ".pokemon", function () {
 
 
@@ -308,13 +302,22 @@ $(document).ready(function () {
 
     //ATTACK SEQUENCE!!!!!========================
     $("#attackButton").on("click", function () {
+        //if 3 enemies have been killed, all opponents have died and YOU WON! -- thus game is over and will reset
         if (killCount < 3) {
-            if (attacker.health >= 0) {
+            // if p1 still has health, game can play, otherwise GAME OVER and will reset!
+            //redundancy
+            if (attacker.health > 0) {
+
+                //if there is an opponent gameplay can happen -- when button is pressed, p1 & cpu take damage
                 if (defender) {
                     console.log("attackButtonPressed");
                     turnCounter++;
                     console.log(turnCounter);
                     cpuHealth.text(defender.health -= attacker.attack * turnCounter);
+                    p1Health.text(attacker.health -= defender.enemyAttackBack);
+
+                    //if opponent is dead, kill count goes up 1 and their health reads 0
+                    //things reset to allow another opponent to be chosen unless all opponents are dead
                     if (defender.health <= 0) {
 
                         console.log("enemy killed");
@@ -326,26 +329,41 @@ $(document).ready(function () {
                         cpuHealth.html(0);
                         pokemonChosenSecond = false;
 
+                    };
+                    if (attacker.health <= 0) {
+                        p1Health.html("You fainted!");
+
+                        messageBar.html("GAME OVER!");
+                        messageBar2.html("(reset in 5 seconds)");
+                        console.log("game over!")
+                        setTimeout(function () { location.reload(); }, 5000);
 
 
-
-                    } else {
-                        p1Health.text(attacker.health -= defender.enemyAttackBack);
+                        pikachu2.animate({ opacity: "0" });
+                        squirtle2.animate({ opacity: "0" });
+                        charmander2.animate({ opacity: "0" });
+                        bulbasaur2.animate({ opacity: "0" });
                     };
                 };
+
             } else {
+                //redundancy
                 p1Health.html("You fainted!");
 
                 messageBar.html("GAME OVER!");
                 messageBar2.html("(reset in 5 seconds)");
                 console.log("game over!")
                 setTimeout(function () { location.reload(); }, 5000);
+
+
                 pikachu2.animate({ opacity: "0" });
                 squirtle2.animate({ opacity: "0" });
                 charmander2.animate({ opacity: "0" });
                 bulbasaur2.animate({ opacity: "0" });
             }
+
         } else {
+            //redundancy
             messageBar.html("YOU WON!")
             messageBar2.html("(reset in 5 seconds)");
             setTimeout(function () { location.reload(); }, 5000);
@@ -356,7 +374,7 @@ $(document).ready(function () {
             charmander3.animate({ opacity: "0" });
             bulbasaur3.animate({ opacity: "0" });
 
-        }
+        };
     });
     //END ATTACK SEQUENCE!!!! ====================
 
