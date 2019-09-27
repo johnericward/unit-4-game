@@ -97,7 +97,12 @@ viewport {
 
 #messageBar {
     text-align: center;
-    color: red;
+    color: rgb(255, 51, 0);
+}
+
+#messageBar2 {
+    text-align: center;
+    color: rgb(231, 64, 22);
 }
 
 /* .pcol1 {
